@@ -1,15 +1,23 @@
 const fs = require('fs')
 
+const loss = 0
+const draw = 3
+const win = 6
+
+const rock = 1
+const paper = 2
+const scissors = 3
+
 const scores = {
-    'A X': 0 + 3,
-    'A Y': 3 + 1,
-    'A Z': 6 + 2,
-    'B X': 0 + 1,
-    'B Y': 3 + 2,
-    'B Z': 6 + 3,
-    'C X': 0 + 2,
-    'C Y': 3 + 3,
-    'C Z': 6 + 1,
+    'A X': loss + scissors,
+    'A Y': draw + rock,
+    'A Z': win + paper,
+    'B X': loss + rock,
+    'B Y': draw + paper,
+    'B Z': win + scissors,
+    'C X': loss + paper,
+    'C Y': draw + scissors,
+    'C Z': win + rock,
 }
 
 fs.readFile(__dirname + '/input.txt', 'utf8', (err, data) => {
@@ -17,6 +25,6 @@ fs.readFile(__dirname + '/input.txt', 'utf8', (err, data) => {
         .split('\n')
         .map(j => +scores[j])
         .reduce((a, v) => a + v)
-
-    console.log(solution)
 })
+
+

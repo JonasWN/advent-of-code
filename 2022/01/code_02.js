@@ -7,5 +7,4 @@ fs.readFile(__dirname + '/input.txt', 'utf8', (err, data) => {
         .sort((a, b) => b - a)
 
     const solution = a + b + c
-    console.log(solution)
 })

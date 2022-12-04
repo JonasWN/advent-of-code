@@ -5,6 +5,4 @@ fs.readFile(__dirname + '/input.txt', 'utf8', (err, data) => {
         .map(n => n.split('\n')
         .reduce((a, v) => a + +v, 0))
         .sort((a, b) => b - a)
-    
-    console.log(solution)
 })
