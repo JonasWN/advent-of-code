@@ -7,9 +7,9 @@ fs.readFile(__dirname + '/input.txt', 'utf8', (err, data) => {
     const solution = data.trim()
         .split('')
         .reduce((acc, value, index) => {
-            const unique = new Set(`${acc}${value}`).size === marker
             const solved = typeof(acc) === "number"
-            const line = !solved && acc.slice(-slice)
+            const unique = new Set(`${acc}${value}`).size === marker
+            const line = !solved && `${acc.slice(-slice)}${value}`
 
             if(solved) {
                 return acc
@@ -19,6 +19,6 @@ fs.readFile(__dirname + '/input.txt', 'utf8', (err, data) => {
                 return index + 1
             }
 
-            return `${line}${value}`
+            return line
         }, '')
 })
